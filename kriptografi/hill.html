@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Project 1 Keamanan Data</title>
+    <link rel="icon" type="image/x-icon" href="../assets/img/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet"
+        type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="../css/styles.css" rel="stylesheet" />
+</head>
+
+<body id="page-top">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+        <a style="visibility: hidden;" class="navbar-brand js-scroll-trigger" href="#"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span
+                class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="../index.html">Tentang Kami</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="caesar.html">Caesar Cipher</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="vigenere.html">Vigenere Cipher</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="playfair.html">Playfair Cipher</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="box.html">Transposisi Box</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="zigzag.html">Transposisi Zigzag</a>
+                </li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="affine.html">Affine Cipher</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger active" href="#">Hill Cipher</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Page Content-->
+    <div class="container-fluid p-0">
+        <!-- Hill Cipher-->
+        <section class="resume-section" id="hill">
+            <div class="container" data-aos="fade-up">
+                <h1>
+                    <center>Hill Cipher</center>
+                </h1>
+                <br><br>
+                <div class="col-lg">
+                    <div class="row-md mb-4">
+                        <form method="post" name="formEncryptHillCipher" onsubmit="encryptHillCipher(); return false;">
+                            <div class="row gy-4 mt-6 justify-content-center" data-aos="zoom-in" data-aos-delay="250">
+                                <div class="col-xl-2 col-md-4">
+                                    <div class="icon-box">
+                                        <input type="text" name="plainHillCipher" style="text-transform: uppercase"
+                                            pattern="[a-zA-Z /s]*" placeholder="plaintext" required>
+                                    </div>
+                                </div>
+                                <div class="col-xl-2 col-md-4">
+                                    <div class="icon-box center">
+                                        <input style="width: 40px" type="text" name="key00" pattern="[0-9]*">
+                                        <input style="width: 40px" type="text" name="key01" pattern="[0-9]*">
+                                        <input style="width: 40px" type="text" name="key10" pattern="[0-9]*">
+                                        <input style="width: 40px" type="text" name="key11" pattern="[0-9]*">
+                                    </div>
+                                </div>
+                                <div class="col-xl-2 col-md-4">
+                                    <div class="icon-box">
+                                        <button type="submit" class="btn btn-primary">Encrypt</button>
+                                    </div>
+                                </div>
+                                <div class="col-xl-2 col-md-4">
+                                    <div class="icon-box">
+                                        <div style="color: black"><span id="hasilEnkripsiHillCipher"> - </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div>
+                        <form method="post" name="formDecryptHillCipher" onsubmit="decryptHillCipher(); return false;">
+                            <div class="row gy-4 mt-8 justify-content-center" data-aos="zoom-in" data-aos-delay="250">
+                                <div class="col-xl-2 col-md-4">
+                                    <div class="icon-box">
+                                        <input type="text" name="cipherHillCipher" style="text-transform: uppercase"
+                                            pattern="[a-zA-Z /s]*" placeholder="ciphertext" required>
+                                    </div>
+                                </div>
+                                <div class="col-xl-2 col-md-4">
+                                    <div class="icon-box">
+                                        <input style="width: 40px" type="text" name="key00" pattern="[0-9]*">
+                                        <input style="width: 40px" type="text" name="key01" pattern="[0-9]*">
+                                        <input style="width: 40px" type="text" name="key10" pattern="[0-9]*">
+                                        <input style="width: 40px" type="text" name="key11" pattern="[0-9]*">
+                                    </div>
+                                </div>
+                                <div class="col-xl-2 col-md-4">
+                                    <div class="icon-box">
+                                        <button type="submit" class="btn btn-success">Decrypt</button>
+                                    </div>
+                                </div>
+                                <div class="col-xl-2 col-md-4">
+                                    <div class="icon-box">
+                                        <div style="color: black"><span id="hasilDekripsiHillCipher"> - </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div>
+        </section>
+    </div>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="../js/scripts.js"></script>
+    <script>
+        var alfabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        var arrayAlfabet = alfabet.split('');
+
+        function hurufKeAngka(huruf) {
+            var pos = arrayAlfabet.indexOf(huruf);
+            return pos;
+        }
+
+        function determinan(key) {
+            var determinan = (key[0][0] * key[1][1]) - (key[1][0] * key[0][1]);
+            return determinan;
+        }
+
+        function inversMatrik(key) {
+            var det = determinan(key);
+            var invers = [];
+            invers.push([key[1][1] * (1 / det), -key[0][1] * (1 / det)]);
+            invers.push([-key[1][0] * (1 / det), key[0][0] * (1 / det)]);
+            return invers;
+        }
+
+        function minus(angka) {
+            if (angka < 0) {
+                var modMinus = 26 - (Math.abs(angka) % 26);
+                return modMinus;
+            } else {
+                return angka;
+            }
+        }
+
+        function inversModulo(key) {
+            var det = determinan(key);
+            var tes = true;
+            var i = 1;
+            var solidNumber;
+            var hitung;
+            while (tes) {
+                hitung = (1 + (26 * i)) / Math.abs(det);
+                if (hitung % 1 == 0) {
+                    tes = false;
+                    solidNumber = hitung;
+                    if (det < 0) {
+                        solidNumber *= -1;
+                    }
+                    break;
+                }
+                i++;
+            }
+            var balik = [];
+            balik.push([minus((key[1][1] * solidNumber) % 26), minus((-key[0][1] * solidNumber) % 26)]);
+            balik.push([minus((-key[1][0] * solidNumber) % 26), minus((key[0][0] * solidNumber) % 26)]);
+            return balik;
+        }
+
+        function perkalianMatrik(baris, matrika, matrikb) {
+            var hasilKali = [];
+            var hasil = [];
+            var i, j, k;
+            for (i = 0; i < baris; i++) {
+                for (j = 0; j < 2; j++) {
+                    a = 0;
+                    for (k = 0; k < 2; k++) {
+                        a += matrika[i][k] * matrikb[k][j];
+                    }
+                    hasil.push(a);
+                }
+            }
+            for (i = 0; i < hasil.length; i++) {
+                hasilKali.push([hasil[i], hasil[i + 1]]);
+                i++;
+            }
+            return hasilKali;
+        }
+
+        function cekMatrik(baris, key) {
+            var det = determinan(key);
+            if (Math.abs(det) % baris == 1) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+
+        function encryptHillCipher() {
+            var hasil = document.getElementById('hasilEnkripsiHillCipher');
+            var rawPlain = document.forms["formEncryptHillCipher"]["plainHillCipher"].value.toUpperCase();
+            var key00 = document.forms["formEncryptHillCipher"]["key00"].value;
+            var key01 = document.forms["formEncryptHillCipher"]["key01"].value;
+            var key10 = document.forms["formEncryptHillCipher"]["key10"].value;
+            var key11 = document.forms["formEncryptHillCipher"]["key11"].value;
+            var plain = rawPlain.split(' ').join('');
+            var plainLength = plain.length;
+            plain = plain.split('');
+            cipher = '';
+
+            if (plainLength % 2 == 1) {
+                var baris = (plainLength + 1) / 2;
+            } else {
+                var baris = plainLength / 2;
+            }
+            var key = [];
+            key.push([key00, key01]);
+            key.push([key10, key11]);
+
+            var pengganti = hurufKeAngka('X');
+            if (cekMatrik(2, key)) {
+                var arrayPlain = [];
+                for (i = 0; i < plainLength; i++) {
+                    if (i == plainLength - 1) {
+                        if (plainLength % 2 == 1) {
+                            arrayPlain.push([hurufKeAngka(plain[i]), pengganti]);
+                        } else {
+                            arrayPlain.push([hurufKeAngka(plain[i]), hurufKeAngka(plain[i + 1])]);
+                        }
+                    } else {
+                        arrayPlain.push([hurufKeAngka(plain[i]), hurufKeAngka(plain[i + 1])]);
+                    }
+                    i++;
+                }
+
+                var change = perkalianMatrik(baris, arrayPlain, key);
+                for (i = 0; i < baris; i++) {
+                    for (j = 0; j < 2; j++) {
+                        cipher += (arrayAlfabet[change[i][j] % 26]);
+                    }
+                }
+                hasil.innerHTML = cipher;
+            } else {
+                alert('Matrik bukan modular multiplicative inverse');
+            }
+        }
+
+        function decryptHillCipher() {
+            var hasil = document.getElementById('hasilDekripsiHillCipher');
+            var rawCipher = document.forms["formDecryptHillCipher"]["cipherHillCipher"].value.toUpperCase();
+            var key00 = document.forms["formDecryptHillCipher"]["key00"].value;
+            var key01 = document.forms["formDecryptHillCipher"]["key01"].value;
+            var key10 = document.forms["formDecryptHillCipher"]["key10"].value;
+            var key11 = document.forms["formDecryptHillCipher"]["key11"].value
+            var cipher = rawCipher.split(' ').join('');
+            var arrayCipher = cipher.split('');
+            var cipherLength = cipher.length;
+            var change = [];
+            var key = [];
+            var plain = '';
+            var baris;
+            key.push([key00, key01]);
+            key.push([key10, key11]);
+
+            baris = cipherLength / 2;
+
+            if (cekMatrik(2, key)) {
+                for (i = 0; i < cipherLength; i++) {
+                    change.push([hurufKeAngka(arrayCipher[i]), hurufKeAngka(arrayCipher[i + 1])]);
+                    i++;
+                }
+
+                var inversmod = inversModulo(key);
+                var change2plain = perkalianMatrik(baris, change, inversmod);
+                for (i = 0; i < baris; i++) {
+                    for (j = 0; j < 2; j++) {
+                        plain += (arrayAlfabet[change2plain[i][j] % 26]);
+                    }
+                }
+                hasil.innerHTML = plain;
+            } else {
+                alert('Matrik x invers matrik harus sama dengan 1')
+            }
+        }
+
+        function inputKunci(val, id) {
+            var td = document.getElementById(id);
+            var el = '';
+            for (var i = 1; i <= val; i++) {
+                if (i == val) {
+                    el += '<input class="matrik" type="text" name="key[]" pattern="[0-9]*" required>';
+                } else {
+                    el += '<input class="matrik" type="text" name="key[]" pattern="[0-9]*" required> - ';
+                }
+            }
+            td.innerHTML = el;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Project 1 Keamanan Data</title>
+    <link rel="icon" type="image/x-icon" href="../assets/img/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet"
+        type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="../css/styles.css" rel="stylesheet" />
+</head>
+
+<body id="page-top">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+        <a style="visibility: hidden;" class="navbar-brand js-scroll-trigger" href="#"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span
+                class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="../index.html">Tentang Kami</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="caesar.html">Caesar Cipher</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger active" href="#">Vigenere Cipher</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="playfair.html">Playfair Cipher</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="box.html">Transposisi Box</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="zigzag.html">Transposisi Zigzag</a>
+                </li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="affine.html">Affine Cipher</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="hill.html">Hill Cipher</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Page Content-->
+    <div class="container-fluid p-0">
+        <!-- Substitusi Vigenere Cipher-->
+        <section class="resume-section" id="vigenere">
+            <h1>Vigenere Cipher</h1>
+            <div class="col-lg">
+                <div class="row-md mb-1">
+                    <form method="post" name="formEncryptVigenere" onsubmit="encryptVigenere(); return false;">
+                        <div class="row gy-4 mt-8 justify-content-center" data-aos="zoom-in" data-aos-delay="250">
+                            <div class="col-xl-3 col-md-4">
+                                <div class="icon-box">
+                                    <input type="text" class="form-control" name="plainVigenere"
+                                        style="text-transform: uppercase" pattern="[a-zA-Z /s]*" placeholder="PLAINTEXT"
+                                        required>
+                                </div>
+                            </div>
+                            <div class="col-xl-2 col-md-4">
+                                <div class="icon-box">
+                                    <input type="text" class="form-control" size="10" name="keyVigenere"
+                                        style="text-transform: uppercase" pattern="[a-zA-Z /s]*"
+                                        placeholder="KEY (text)" required>
+                                </div>
+                            </div>
+                            <div class="col-xl-2 col-md-4">
+                                <div class="icon-box">
+                                    <button type="submit" class="btn btn-primary">Encrypt</button>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-12">
+                                <div class="icon-box">
+                                    <div style="color: black"><span id="hasilEnkripsiVigenere"> - </span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="row-md">
+                    <form method="post" name="formDecryptVigenere" onsubmit="decryptVigenere(); return false;">
+                        <div class="row gy-4 mt-8 justify-content-center" data-aos="zoom-in" data-aos-delay="250">
+                            <div class="col-xl-3 col-md-4">
+                                <div class="icon-box">
+                                    <input type="text" class="form-control" name="cipherVigenere"
+                                        style="text-transform: uppercase" pattern="[a-zA-Z /s]*"
+                                        placeholder="CIPHER TEXT" required>
+                                </div>
+                            </div>
+                            <div class="col-xl-2 col-md-4">
+                                <div class="icon-box">
+                                    <input type="text" class="form-control" size="10" name="keyVigenere"
+                                        style="text-transform: uppercase" pattern="[a-zA-Z /s]*" placeholder="KEY"
+                                        required>
+                                </div>
+                            </div>
+                            <div class="col-xl-2 col-md-4">
+                                <div class="icon-box">
+                                    <button type="submit" class="btn btn-success">Decrypt</button>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-12">
+                                <div class="icon-box">
+                                    <div style="color: black"><span id="hasilDekripsiVigenere"> - </span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="../js/scripts.js"></script>
+    <script>
+        var alfabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        var arrayAlfabet = alfabet.split('');
+
+        function hurufKeAngka(huruf) {
+            var pos = arrayAlfabet.indexOf(huruf);
+            return pos;
+        }
+
+        function encryptVigenere() {
+            var hasil = document.getElementById('hasilEnkripsiVigenere');
+            var rawPlain = document.forms["formEncryptVigenere"]["plainVigenere"].value.toUpperCase();
+            var rawKey = document.forms["formEncryptVigenere"]["keyVigenere"].value.toUpperCase();
+            var plain = rawPlain.split(' ').join('');
+            var key = rawKey.split(' ').join('');
+            var plainLength = plain.length;
+            var keyLength = key.length;
+            var arrayPlain = plain.split('');
+            var arrayKey = key.split('');
+            var cipher = '';
+            var encrypt;
+            for (var i = 0; i < plainLength; i++) {
+                encrypt = (hurufKeAngka(arrayPlain[i]) + hurufKeAngka(arrayKey[i % keyLength])) % 26;
+                encrypt = arrayAlfabet[encrypt];
+                cipher += encrypt;
+            }
+            hasil.innerHTML = cipher;
+        }
+
+        function decryptVigenere() {
+            var hasil = document.getElementById('hasilDekripsiVigenere');
+            var rawCipher = document.forms["formDecryptVigenere"]["cipherVigenere"].value.toUpperCase();
+            var rawKey = document.forms["formDecryptVigenere"]["keyVigenere"].value.toUpperCase();
+            var cipher = rawCipher.split(' ').join('');
+            var key = rawKey.split(' ').join('');
+            var cipherLength = cipher.length;
+            var keyLength = key.length;
+            var arrayCipher = cipher.split('');
+            var arrayKey = key.split('');
+            var plain = '';
+            var decrypt;
+            for (var i = 0; i < cipherLength; i++) {
+                decrypt = (hurufKeAngka(arrayCipher[i]) - hurufKeAngka(arrayKey[i % keyLength])) % 26;
+                if (decrypt >= 0) {
+                    decrypt = arrayAlfabet[decrypt];
+                    plain += decrypt;
+                } else {
+                    while (decrypt <= -26) {
+                        decrypt += 26;
+                    }
+                    var pos = 26 + decrypt;
+                    decrypt = arrayAlfabet[pos];
+                    plain += decrypt;
+                }
+            }
+            hasil.innerHTML = plain;
+        }
+
+        function determinan(key) {
+            var determinan = (key[0][0] * key[1][1]) - (key[1][0] * key[0][1]);
+            return determinan;
+        }
+
+        function inversMatrik(key) {
+            var det = determinan(key);
+            var invers = [];
+            invers.push([key[1][1] * (1 / det), -key[0][1] * (1 / det)]);
+            invers.push([-key[1][0] * (1 / det), key[0][0] * (1 / det)]);
+            return invers;
+        }
+
+        function minus(angka) {
+            if (angka < 0) {
+                var modMinus = 26 - (Math.abs(angka) % 26);
+                return modMinus;
+            } else {
+                return angka;
+            }
+        }
+
+        function inversModulo(key) {
+            var det = determinan(key);
+            var tes = true;
+            var i = 1;
+            var solidNumber;
+            var hitung;
+            while (tes) {
+                hitung = (1 + (26 * i)) / Math.abs(det);
+                if (hitung % 1 == 0) {
+                    tes = false;
+                    solidNumber = hitung;
+                    if (det < 0) {
+                        solidNumber *= -1;
+                    }
+                    break;
+                }
+                i++;
+            }
+            var balik = [];
+            balik.push([minus((key[1][1] * solidNumber) % 26), minus((-key[0][1] * solidNumber) % 26)]);
+            balik.push([minus((-key[1][0] * solidNumber) % 26), minus((key[0][0] * solidNumber) % 26)]);
+            return balik;
+        }
+
+        function perkalianMatrik(baris, matrika, matrikb) {
+            var hasilKali = [];
+            var hasil = [];
+            var i, j, k;
+            for (i = 0; i < baris; i++) {
+                for (j = 0; j < 2; j++) {
+                    a = 0;
+                    for (k = 0; k < 2; k++) {
+                        a += matrika[i][k] * matrikb[k][j];
+                    }
+                    hasil.push(a);
+                }
+            }
+            for (i = 0; i < hasil.length; i++) {
+                hasilKali.push([hasil[i], hasil[i + 1]]);
+                i++;
+            }
+            return hasilKali;
+        }
+
+        function cekMatrik(baris, key) {
+            var det = determinan(key);
+            if (Math.abs(det) % baris == 1) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    </script>
+</body>
+
+</html>

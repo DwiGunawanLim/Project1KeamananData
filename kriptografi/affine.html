@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Project 1 Keamanan Data</title>
+    <link rel="icon" type="image/x-icon" href="../assets/img/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet"
+        type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="../css/styles.css" rel="stylesheet" />
+</head>
+
+<body id="page-top">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+        <a style="visibility: hidden;" class="navbar-brand js-scroll-trigger" href="#"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span
+                class="navbar-toggler-icon"></span></button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="../index.html">Tentang Kami</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="caesar.html">Caesar Cipher</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="vigenere.html">Vigenere Cipher</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="playfair.html">Playfair Cipher</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="box.html">Transposisi Box</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="zigzag.html">Transposisi Zigzag</a>
+                </li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger active" href="#">Affine Cipher</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="hill.html">Hill Cipher</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Page Content-->
+    <div class="container-fluid p-0">
+        <!-- Affine Cipher-->
+        <section class="resume-section" id="affine">
+            <h1>Affine Cipher</h1>
+            <br><br>
+            <div class="row gy-4 mt-12 justify-content-center" data-aos="zoom-in" data-aos-delay="250">
+                <div class="col-xl-2 col-md-12">
+                    <div class="icon-box">
+                        <form action="#" method="POST">
+                            <h3><a href="#">Plain Text</a></h3>
+                            <input type="text" class="form-control" name="p">
+                            <p style="color: black"> Kunci 1 =
+                                <select name="mult" size="1">
+                                    <option>1</option>
+                                    <option>3</option>
+                                    <option>5</option>
+                                    <option>7</option>
+                                    <option>9</option>
+                                    <option>11</option>
+                                    <option>15</option>
+                                    <option>17</option>
+                                    <option>19</option>
+                                    <option>21</option>
+                                    <option>23</option>
+                                    <option>25</option>
+                                </select>
+                                <br>
+                                Kunci 2 =
+                                <select name="add" size="1">
+                                    <option>0</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                    <option>6</option>
+                                    <option>7</option>
+                                    <option>8</option>
+                                    <option>9</option>
+                                    <option>10</option>
+                                    <option>11</option>
+                                    <option>12</option>
+                                    <option>13</option>
+                                    <option>14</option>
+                                    <option>15</option>
+                                    <option>16</option>
+                                    <option>17</option>
+                                    <option>18</option>
+                                    <option>19</option>
+                                    <option>20</option>
+                                    <option>21</option>
+                                    <option>22</option>
+                                    <option>23</option>
+                                    <option>24</option>
+                                    <option>25</option>
+                                </select>
+                            </p>
+                    </div>
+                </div>
+                <div class="col-xl-2 col-md-6">
+
+                    <input name="btnEn" class="btn btn-primary" value="Encrypt" onclick="Encrypt(this.form)"
+                        type="button">
+
+                </div>
+                <div class="col-xl-2 col-md-6">
+
+                    <input name="btnDe" class="btn btn-success" value="Decrypt" onclick="Decrypt(this.form)"
+                        type="button">
+
+                </div>
+                <div class="col-xl-2 col-md-12">
+                    <div class="icon-box">
+                        <h3><a href="#">Plain Text</a></h3>
+                        <input type="text" class="form-control" name="c">
+                    </div>
+                </div>
+            </div>
+    </div>
+    </form>
+    </div>
+    </section>
+    </div>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="../js/scripts.js"></script>
+    <script>
+        function Encrypt(f) {
+          var word, newword, code, newcode, newletter
+          var addkey, multkey
+          word = f.p.value
+          word = word.toLowerCase()
+          word = word.replace(/\W/g, "")
+          addkey = 0
+    
+          for (i = 0; i < f.add.options.length; i++) {
+            addkey = addkey + (f.add.options[i].text) * (f.add.options[i].selected)
+          }
+    
+          multkey = 0
+    
+          for (i = 0; i < f.mult.options.length; i++) {
+            multkey = multkey + (f.mult.options[i].text) * (f.mult.options[i].selected)
+          }
+    
+          newword = ""
+    
+          for (i = 0; i < word.length; i++) {
+            code = word.charCodeAt(i) - 97
+            newcode = ((multkey * code + addkey) % 26) + 97
+            newletter = String.fromCharCode(newcode)
+            newword = newword + newletter
+          }
+    
+          f.c.value = newword + " "
+        }
+    
+        function Decrypt(f) {
+          var word, newword, code, newcode, newletter
+          var addkey, multkey, multinverse
+    
+          word = f.c.value
+          word = word.toLowerCase()
+          word = word.replace(/\W/g, "")
+          addkey = 0
+    
+          for (i = 0; i < f.add.options.length; i++) {
+            addkey = addkey + (f.add.options[i].text) * (f.add.options[i].selected)
+          }
+    
+          multkey = 0
+    
+          for (i = 0; i < f.mult.options.length; i++) {
+            multkey = multkey + (f.mult.options[i].text) * (f.mult.options[i].selected)
+            //if (i==3) alert(multkey +" + "+f.mult.options[i].text + " * " + f.mult.options[i].selected+" = "+(f.mult.options[i].text) * ( f.mult.options[i].selected));
+          }
+    
+          multinverse = 1
+    
+          for (i = 1; i <= 25; i = i + 2) {
+            if ((multkey * i) % 26 == 1) {
+              multinverse = i
+            }
+          }
+    
+          newword = ""
+    
+          for (i = 0; i < word.length; i++) {
+            code = word.charCodeAt(i) - 97
+            newcode = ((multinverse * (code + 26 - addkey)) % 26) + 97
+            newletter = String.fromCharCode(newcode)
+            newword = newword + newletter
+          }
+    
+          f.p.value = newword.toLowerCase()
+        }
+      </script>
+</body>
+
+</html>
