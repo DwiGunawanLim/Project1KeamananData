@@ -52,26 +52,30 @@
                     <div class="row-md mb-4">
                         <form method="post" name="formEncryptHillCipher" onsubmit="encryptHillCipher(); return false;">
                             <div class="row gy-4 mt-6 justify-content-center" data-aos="zoom-in" data-aos-delay="250">
-                                <div class="col-xl-2 col-md-4">
+                                <div class="col-xl-3 col-md-2">
                                     <div class="icon-box">
                                         <input type="text" name="plainHillCipher" style="text-transform: uppercase"
                                             pattern="[a-zA-Z /s]*" placeholder="plaintext" required>
                                     </div>
                                 </div>
-                                <div class="col-xl-2 col-md-4">
+                                <div class="col-xl-2">
                                     <div class="icon-box center">
-                                        <input style="width: 40px" type="text" name="key00" pattern="[0-9]*">
-                                        <input style="width: 40px" type="text" name="key01" pattern="[0-9]*">
-                                        <input style="width: 40px" type="text" name="key10" pattern="[0-9]*">
-                                        <input style="width: 40px" type="text" name="key11" pattern="[0-9]*">
+                                        <div class="row justify-content-center">
+                                            <input style="width: 40px" type="text" name="key00" pattern="[0-9]*">
+                                            <input style="width: 40px" type="text" name="key01" pattern="[0-9]*">
+                                            <input style="width: 40px" type="text" name="key10" pattern="[0-9]*">
+                                        </div>
+                                        <div class="row justify-content-center">
+                                            <input style="width: 40px" type="text" name="key11" pattern="[0-9]*">
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-xl-2 col-md-4">
+                                <div class="col-xl-2 col-md-2">
                                     <div class="icon-box">
                                         <button type="submit" class="btn btn-primary">Encrypt</button>
                                     </div>
                                 </div>
-                                <div class="col-xl-2 col-md-4">
+                                <div class="col-xl-2 col-md-2">
                                     <div class="icon-box">
                                         <div style="color: black"><span id="hasilEnkripsiHillCipher"> - </span>
                                         </div>
@@ -83,7 +87,7 @@
                     <div>
                         <form method="post" name="formDecryptHillCipher" onsubmit="decryptHillCipher(); return false;">
                             <div class="row gy-4 mt-8 justify-content-center" data-aos="zoom-in" data-aos-delay="250">
-                                <div class="col-xl-2 col-md-4">
+                                <div class="col-xl-3 col-md-4">
                                     <div class="icon-box">
                                         <input type="text" name="cipherHillCipher" style="text-transform: uppercase"
                                             pattern="[a-zA-Z /s]*" placeholder="ciphertext" required>
@@ -91,10 +95,14 @@
                                 </div>
                                 <div class="col-xl-2 col-md-4">
                                     <div class="icon-box">
-                                        <input style="width: 40px" type="text" name="key00" pattern="[0-9]*">
-                                        <input style="width: 40px" type="text" name="key01" pattern="[0-9]*">
-                                        <input style="width: 40px" type="text" name="key10" pattern="[0-9]*">
-                                        <input style="width: 40px" type="text" name="key11" pattern="[0-9]*">
+                                        <div class="row justify-content-center">
+                                            <input style="width: 40px" type="text" name="key00" pattern="[0-9]*">
+                                            <input style="width: 40px" type="text" name="key01" pattern="[0-9]*">
+                                            <input style="width: 40px" type="text" name="key10" pattern="[0-9]*">
+                                        </div>
+                                        <div class="row justify-content-center">
+                                            <input style="width: 40px" type="text" name="key11" pattern="[0-9]*">
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-xl-2 col-md-4">
