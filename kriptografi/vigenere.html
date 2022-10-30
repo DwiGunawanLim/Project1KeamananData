@@ -31,8 +31,8 @@
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="caesar.html">Caesar Cipher</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger active" href="#">Vigenere Cipher</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="playfair.html">Playfair Cipher</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="box.html">Transposisi Box</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="zigzag.html">Transposisi Zigzag</a>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="box.html">Columnar Cipher</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="zigzag.html">Zigzag Cipher</a>
                 </li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="affine.html">Affine Cipher</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="hill.html">Hill Cipher</a></li>
@@ -43,67 +43,90 @@
     <div class="container-fluid p-0">
         <!-- Substitusi Vigenere Cipher-->
         <section class="resume-section" id="vigenere">
-            <h1>Vigenere Cipher</h1>
-            <div class="col-lg">
-                <div class="row-md mb-4">
-                    <form method="post" name="formEncryptVigenere" onsubmit="encryptVigenere(); return false;">
-                        <div class="row gy-4 mt-8 justify-content-center" data-aos="zoom-in" data-aos-delay="250">
-                            <div class="col-xl-3 col-md-4">
-                                <div class="icon-box">
-                                    <input type="text" class="form-control" name="plainVigenere"
-                                        style="text-transform: uppercase" pattern="[a-zA-Z /s]*" placeholder="PLAINTEXT"
-                                        required>
+            <div class="row">
+                <h1>Vigenere Cipher</h1>
+                <p align="justify">
+                    <b>Sandi Vigenère</b> adalah metode menyandikan teks alfabet dengan menggunakan deretan sandi Caesar
+                    berdasarkan huruf-huruf pada kata kunci. Sandi Vigenère merupakan bentuk sederhana dari sandi
+                    substitusi polialfabetik. Kelebihan sandi ini dibanding sandi Caesar dan sandi monoalfabetik lainnya
+                    adalah sandi ini tidak begitu rentan terhadap metode pemecahan sandi yang disebut analisis
+                    frekuensi. <b>Giovan Batista Belaso</b> menjelaskan metode ini dalam buku <i>La cifra del. Sig.
+                        Giovan Batista Belaso</i> (1553); dan disempurnakan oleh diplomat Prancis <b>Blaise de
+                        Vigenère</b>, pada 1586. Pada abat ke-19, banyak orang yang mengira <b>Vigenère</b> adalah
+                    penemu sandi ini, sehingga, sandi ini dikenal luas sebagai "sandi Vigenère".<br><br>
+
+                    Sandi ini dikenal luas karena cara kerjanya mudah dimengerti dan dijalankan, dan bagi para pemula
+                    sulit dipecahkan. Pada saat kejayaannya, sandi ini dijuluki <i><b>le chiffre indéchiffrable</b></i>
+                    (bahasa Prancis: 'sandi yang tak terpecahkan'). Metode pemecahan sandi ini baru ditemukan pada abad
+                    ke-19. Pada tahun 1854, Charles Babbage menemukan cara untuk memecahkan sandi Vigenère. Metode ini
+                    dinamakan tes Kasiski karena Friedrich Kasiski-lah yang pertama mempublikasikannya.
+                    <br><br>
+                </p>
+                <div class="col-lg">
+                    <center>
+                        <div class="row-md mb-4">
+                            <form method="post" name="formEncryptVigenere" onsubmit="encryptVigenere(); return false;">
+                                <div class="row gy-4 mt-8 justify-content-center" data-aos="zoom-in"
+                                    data-aos-delay="250">
+                                    <div class="col-xl-3 col-md-4">
+                                        <div class="icon-box">
+                                            <input type="text" class="form-control" name="plainVigenere"
+                                                style="text-transform: uppercase" pattern="[a-zA-Z /s]*"
+                                                placeholder="PLAINTEXT" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-2 col-md-4">
+                                        <div class="icon-box">
+                                            <input type="text" class="form-control" size="10" name="keyVigenere"
+                                                style="text-transform: uppercase" pattern="[a-zA-Z /s]*"
+                                                placeholder="KEY (text)" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-2 col-md-4">
+                                        <div class="icon-box">
+                                            <button type="submit" class="btn btn-primary">Encrypt</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3 col-md-12">
+                                        <div class="icon-box">
+                                            <div style="color: black"><span id="hasilEnkripsiVigenere"> - </span></div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-xl-2 col-md-4">
-                                <div class="icon-box">
-                                    <input type="text" class="form-control" size="10" name="keyVigenere"
-                                        style="text-transform: uppercase" pattern="[a-zA-Z /s]*"
-                                        placeholder="KEY (text)" required>
-                                </div>
-                            </div>
-                            <div class="col-xl-2 col-md-4">
-                                <div class="icon-box">
-                                    <button type="submit" class="btn btn-primary">Encrypt</button>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-12">
-                                <div class="icon-box">
-                                    <div style="color: black"><span id="hasilEnkripsiVigenere"> - </span></div>
-                                </div>
-                            </div>
+                            </form>
                         </div>
-                    </form>
-                </div>
-                <div class="row-md">
-                    <form method="post" name="formDecryptVigenere" onsubmit="decryptVigenere(); return false;">
-                        <div class="row gy-4 mt-8 justify-content-center" data-aos="zoom-in" data-aos-delay="250">
-                            <div class="col-xl-3 col-md-4">
-                                <div class="icon-box">
-                                    <input type="text" class="form-control" name="cipherVigenere"
-                                        style="text-transform: uppercase" pattern="[a-zA-Z /s]*"
-                                        placeholder="CIPHER TEXT" required>
+                        <div class="row-md">
+                            <form method="post" name="formDecryptVigenere" onsubmit="decryptVigenere(); return false;">
+                                <div class="row gy-4 mt-8 justify-content-center" data-aos="zoom-in"
+                                    data-aos-delay="250">
+                                    <div class="col-xl-3 col-md-4">
+                                        <div class="icon-box">
+                                            <input type="text" class="form-control" name="cipherVigenere"
+                                                style="text-transform: uppercase" pattern="[a-zA-Z /s]*"
+                                                placeholder="CIPHER TEXT" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-2 col-md-4">
+                                        <div class="icon-box">
+                                            <input type="text" class="form-control" size="10" name="keyVigenere"
+                                                style="text-transform: uppercase" pattern="[a-zA-Z /s]*"
+                                                placeholder="KEY" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-2 col-md-4">
+                                        <div class="icon-box">
+                                            <button type="submit" class="btn btn-success">Decrypt</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-3 col-md-12">
+                                        <div class="icon-box">
+                                            <div style="color: black"><span id="hasilDekripsiVigenere"> - </span></div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-xl-2 col-md-4">
-                                <div class="icon-box">
-                                    <input type="text" class="form-control" size="10" name="keyVigenere"
-                                        style="text-transform: uppercase" pattern="[a-zA-Z /s]*" placeholder="KEY"
-                                        required>
-                                </div>
-                            </div>
-                            <div class="col-xl-2 col-md-4">
-                                <div class="icon-box">
-                                    <button type="submit" class="btn btn-success">Decrypt</button>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-12">
-                                <div class="icon-box">
-                                    <div style="color: black"><span id="hasilDekripsiVigenere"> - </span></div>
-                                </div>
-                            </div>
+                            </form>
                         </div>
-                    </form>
+                    </center>
                 </div>
             </div>
         </section>

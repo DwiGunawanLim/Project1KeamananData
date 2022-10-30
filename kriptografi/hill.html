@@ -31,8 +31,8 @@
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="caesar.html">Caesar Cipher</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="vigenere.html">Vigenere Cipher</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="playfair.html">Playfair Cipher</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="box.html">Transposisi Box</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="zigzag.html">Transposisi Zigzag</a>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="box.html">Columnar Cipher</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="zigzag.html">Zigzag Cipher</a>
                 </li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="affine.html">Affine Cipher</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger active" href="#">Hill Cipher</a></li>
@@ -43,48 +43,56 @@
     <div class="container-fluid p-0">
         <!-- Hill Cipher-->
         <section class="resume-section" id="hill">
-            <div class="container" data-aos="fade-up">
-                <h1>
-                    <center>Hill Cipher</center>
-                </h1>
-                <br><br>
+            <div class="row">
+                <h1>Hill Cipher</h1>
+                <p align="justify">
+                    Dalam kriptografi klasik, <b>Hill Cipher</b> adalah cipher substitusi poligrafik berdasarkan aljabar
+                    linier. Diciptakan oleh <b>Lester S. Hill</b> pada tahun 1929, itu adalah sandi poligrafik pertama
+                    yang praktis (meskipun hampir tidak) untuk beroperasi pada lebih dari tiga simbol sekaligus.
+                    <br><br>
                 <div class="col-lg">
                     <div class="row-md mb-4">
-                        <form method="post" name="formEncryptHillCipher" onsubmit="encryptHillCipher(); return false;">
-                            <div class="row gy-4 mt-6 justify-content-center" data-aos="zoom-in" data-aos-delay="250">
-                                <div class="col-xl-3 col-md-2">
-                                    <div class="icon-box">
-                                        <input type="text" name="plainHillCipher" style="text-transform: uppercase"
-                                            pattern="[a-zA-Z /s]*" placeholder="plaintext" required>
-                                    </div>
-                                </div>
-                                <div class="col-xl-2">
-                                    <div class="icon-box center">
-                                        <div class="row justify-content-center">
-                                            <input style="width: 40px" type="text" name="key00" pattern="[0-9]*">
-                                            <input style="width: 40px" type="text" name="key01" pattern="[0-9]*">
-                                            <input style="width: 40px" type="text" name="key10" pattern="[0-9]*">
-                                        </div>
-                                        <div class="row justify-content-center">
-                                            <input style="width: 40px" type="text" name="key11" pattern="[0-9]*">
+                        <center>
+                            <form method="post" name="formEncryptHillCipher"
+                                onsubmit="encryptHillCipher(); return false;">
+                                <div class="row gy-4 mt-6 justify-content-center" data-aos="zoom-in"
+                                    data-aos-delay="250">
+                                    <div class="col-xl-3 col-md-2">
+                                        <div class="icon-box">
+                                            <input type="text" name="plainHillCipher" style="text-transform: uppercase"
+                                                pattern="[a-zA-Z /s]*" placeholder="plaintext" required>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-xl-2 col-md-2">
-                                    <div class="icon-box">
-                                        <button type="submit" class="btn btn-primary">Encrypt</button>
+                                    <div class="col-xl-2">
+                                        <div class="icon-box center">
+                                            <div class="row justify-content-center">
+                                                <input style="width: 40px" type="text" name="key00" pattern="[0-9]*">
+                                                <input style="width: 40px" type="text" name="key01" pattern="[0-9]*">
+                                                <input style="width: 40px" type="text" name="key10" pattern="[0-9]*">
+                                            </div>
+                                            <div class="row justify-content-center">
+                                                <input style="width: 40px" type="text" name="key11" pattern="[0-9]*">
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-xl-2 col-md-2">
-                                    <div class="icon-box">
-                                        <div style="color: black"><span id="hasilEnkripsiHillCipher"> - </span>
+                                    <div class="col-xl-2 col-md-2">
+                                        <div class="icon-box">
+                                            <button type="submit" class="btn btn-primary">Encrypt</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-2 col-md-2">
+                                        <div class="icon-box">
+                                            <div style="color: black"><span id="hasilEnkripsiHillCipher"> - </span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </form>
+                            </form>
+                        </center>
                     </div>
-                    <div>
+                </div>
+                <div>
+                    <center>
                         <form method="post" name="formDecryptHillCipher" onsubmit="decryptHillCipher(); return false;">
                             <div class="row gy-4 mt-8 justify-content-center" data-aos="zoom-in" data-aos-delay="250">
                                 <div class="col-xl-3 col-md-4">
@@ -118,9 +126,9 @@
                                 </div>
                             </div>
                         </form>
-                    </div>
+                    </center>
                 </div>
-                <div>
+            </div>
         </section>
     </div>
     <!-- Bootstrap core JS-->

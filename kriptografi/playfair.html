@@ -31,8 +31,8 @@
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="caesar.html">Caesar Cipher</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="vigenere.html">Vigenere Cipher</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger active" href="#">Playfair Cipher</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="box.html">Transposisi Box</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="zigzag.html">Transposisi Zigzag</a>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="box.html">Columnar Cipher</a></li>
+                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="zigzag.html">Zigzag Cipher</a>
                 </li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="affine.html">Affine Cipher</a></li>
                 <li class="nav-item"><a class="nav-link js-scroll-trigger" href="hill.html">Hill Cipher</a></li>
@@ -43,62 +43,88 @@
     <div class="container-fluid p-0">
         <!-- Substitusi Playfair Cipher-->
         <section class="resume-section" id="playfair">
-            <h1>PlayFair Cipher</h1>
-            <br><br>
-            <div class="col-lg">
-                <div class="row-md mb-1">
-            <div class="row gy-4 mt-8 justify-content-center" data-aos="zoom-in" data-aos-delay="250">
-                <div class="col-xl-3 col-md-4">
-                    <div class="icon-box">
-                        <input type="text" class="form-control" id="String" name="text" placeholder="PLAINTEXT"
-                            required>
+            <div class="row">
+                <h1>PlayFair Cipher</h1>
+                <p align="justify">
+                    Dalam teknik ini pesan dienkripsi berdasarkan pasangan huruf, bukan huruf tunggal seperti sandi
+                    klasik lainnya. <b>Sandi Playfair</b> ditemukan oleh ahli Fisika berkebangsaan Inggris bernama
+                    <b>Sir Charles Wheatstone</b> (1802 - 1875) namun dipromosikan oleh <b>Baron Lyon Playfair</b> (1819
+                    - 1898) pada tahun 1854. Dibandingkan dengan sandi-sandi lainnya, sandi Playfair dapat meningkatan
+                    keamanan dalam pengiriman sebuah pesan rahasia sehingga dapat memberikan jaminan integritas data
+                    serta menjaga kerahasiaan. Sandi Playfair pertama kali digunakan untuk tujuan-tujuan taktis oleh
+                    pasukan Inggris dalam Perang Boer II dan Perang Dunia I. Australia dan Jerman juga menggunakan sandi
+                    ini untuk tujuan yang sama dalam Perang Dunia II. Sandi Playfair paling sering digunakan karena
+                    penggunaannya yang sangat sederhana dan tidak memerlukan peralatan khusus untuk membaca atau
+                    menerjemahkan suatu sandi yang bersifat rahasia. Pada perkembangan selanjutnya, sandi ini tidak lagi
+                    digunakan oleh pasukan militer karena telah muncul berbagai perangkat enkripsi digital untuk
+                    menerjemahkannya. Sandi Playfair dianggap tidak aman lagi untuk menjaga suatu kerahasiaan pesan
+                    karena komputer dengan peranti lunak tertentu dapat memecahkan suatu sandi dalam hitungan
+                    detik.<br><br>
+
+                    Sandi Playfair menggunakan 25 huruf sebagai kunci yang disusun dalam bujur sangkar dengan
+                    menghilangkan huruf J dari abjad. Susunan kunci di dalam bujur sangkar tersebut diperluas dengan
+                    menambahkan kolom keenam dan baris keenam.
+                </p>
+                <br><br>
+                <center>
+                    <div class="col-lg mt-12">
+                        <div class="row-md mb-1">
+                            <div class="row gy-4 mt-8 justify-content-center" data-aos="zoom-in" data-aos-delay="250">
+                                <div class="col-xl-3 col-md-4">
+                                    <div class="icon-box">
+                                        <input type="text" class="form-control" id="String" name="text"
+                                            placeholder="PLAINTEXT" required>
+                                    </div>
+                                </div>
+                                <div class="col-xl-2 col-md-4">
+                                    <div class="icon-box">
+                                        <input type="text" class="form-control" id="key" name="kunci"
+                                            placeholder="KEY (STRING)" required>
+                                    </div>
+                                </div>
+                                <div class="col-xl-2 col-md-4">
+                                    <div class="icon-box">
+                                        <input type="button" class="btn btn-primary" value="Encrypt"
+                                            onclick="processKey(), cipher()" />
+                                    </div>
+                                </div>
+                                <div class="col-xl-3 col-md-12">
+                                    <div class="icon-box">
+                                        <div style="color: black"><span id="printValue"> - </span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row-md"></div>
+                        <div class="row gy-4 mt-8 justify-content-center" data-aos="zoom-in" data-aos-delay="250">
+                            <div class="col-xl-3 col-md-4">
+                                <div class="icon-box">
+                                    <input type="text" class="form-control" id="String2" name="text"
+                                        placeholder="PLAINTEXT" required>
+                                </div>
+                            </div>
+                            <div class="col-xl-2 col-md-4">
+                                <div class="icon-box">
+                                    <input type="text" class="form-control" id="key2" name="kunci"
+                                        placeholder="KEY (STRING)" required>
+                                </div>
+                            </div>
+                            <div class="col-xl-2 col-md-4">
+                                <div class="icon-box">
+                                    <input type="button" class="btn btn-success" value="Decrypt"
+                                        onclick="deCodeCipher()" />
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-12">
+                                <div class="icon-box">
+                                    <div style="color: black"><span id="printDeCode"> - </span></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="col-xl-2 col-md-4">
-                    <div class="icon-box">
-                        <input type="text" class="form-control" id="key" name="kunci" placeholder="KEY (STRING)"
-                            required>
-                    </div>
-                </div>
-                <div class="col-xl-2 col-md-4">
-                    <div class="icon-box">
-                        <input type="button" class="btn btn-primary" value="Encrypt" onclick="processKey(), cipher()" />
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-12">
-                    <div class="icon-box">
-                        <div style="color: black"><span id="printValue"> - </span></div>
-                    </div>
-                </div>
+                </center>
             </div>
-        </div>
-            <br>
-            <div class="row-md"></div>
-            <div class="row gy-4 mt-8 justify-content-center" data-aos="zoom-in" data-aos-delay="250">
-                <div class="col-xl-3 col-md-4">
-                    <div class="icon-box">
-                        <input type="text" class="form-control" id="String2" name="text" placeholder="PLAINTEXT"
-                            required>
-                    </div>
-                </div>
-                <div class="col-xl-2 col-md-4">
-                    <div class="icon-box">
-                        <input type="text" class="form-control" id="key2" name="kunci" placeholder="KEY (STRING)"
-                            required>
-                    </div>
-                </div>
-                <div class="col-xl-2 col-md-4">
-                    <div class="icon-box">
-                        <input type="button" class="btn btn-success" value="Decrypt" onclick="deCodeCipher()" />
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-12">
-                    <div class="icon-box">
-                        <div style="color: black"><span id="printDeCode"> - </span></div>
-                    </div>
-                </div>
-            </div>
-        </div>
         </section>
     </div>
     <!-- Bootstrap core JS-->

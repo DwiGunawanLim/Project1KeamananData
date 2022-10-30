@@ -2,171 +2,179 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-    <title>Project 1 Keamanan Data</title>
-    <link rel="icon" type="image/x-icon" href="../assets/img/favicon.ico" />
-    <!-- Font Awesome icons (free version)-->
-    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
-    <!-- Google fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet"
-        type="text/css" />
-    <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
-    <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="../css/styles.css" rel="stylesheet" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <title>Project 1 Keamanan Data</title>
+  <link rel="icon" type="image/x-icon" href="../assets/img/favicon.ico" />
+  <!-- Font Awesome icons (free version)-->
+  <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+  <!-- Google fonts-->
+  <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
+  <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
+  <!-- Core theme CSS (includes Bootstrap)-->
+  <link href="../css/styles.css" rel="stylesheet" />
 </head>
 
 <body id="page-top">
-    <!-- Navigation-->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
-        <a style="visibility: hidden;" class="navbar-brand js-scroll-trigger" href="#"></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
-            aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span
-                class="navbar-toggler-icon"></span></button>
-        <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="../index.html">Tentang Kami</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger active" href="#">Caesar Cipher</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="vigenere.html">Vigenere Cipher</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="playfair.html">Playfair Cipher</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="box.html">Transposisi Box</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="zigzag.html">Transposisi Zigzag</a>
-                </li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="affine.html">Affine Cipher</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="hill.html">Hill Cipher</a></li>
-            </ul>
-        </div>
-    </nav>
-    <!-- Page Content-->
-    <div class="container-fluid p-0">
-        <!-- Substitusi Caesar Cipher-->
-        <section class="resume-section" id="caesar">
-            <h1>Caesar Cipher</h1>
-            <br><br>
-            <form action="#" method="POST">
-                <div class="row gy-4 mt-8 justify-content-center" data-aos="zoom-in" data-aos-delay="250">
-                    <div class="col-xl-3 col-md-4">
-                        <div class="icon-box">
-                            <input type="text" class="form-control" id="text" name="text" placeholder="PLAINTEXT"
-                                required>
-                        </div>
-                    </div>
-                    <div class="col-xl-2 col-md-4">
-                        <div class="icon-box">
-                            <input type="text" class="form-control" id="shift" name="kunci" placeholder="KEY (NUMBER)"
-                                required>
-                        </div>
-                    </div>
-                    <div class="col-xl-2 col-md-4">
-                        <div class="icon-box">
-                            <input type="button" class="btn btn-primary" value="Encrypt" onclick="doCrypt(false);" />
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-md-12">
-                        <div class="icon-box">
-                            <div style="color: black"><span id="hasilEnkripsi"> - </span></div>
-                        </div>
-                    </div>
-                </div>
-                <br>
-                <div class="row gy-4 mt-8 justify-content-center" data-aos="zoom-in" data-aos-delay="250">
-                    <div class="col-xl-3 col-md-4">
-                        <div class="icon-box">
-                            <input type="text" class="form-control" id="text2" name="text2" placeholder="CIPHER TEXT"
-                                required>
-                        </div>
-                    </div>
-                    <div class="col-xl-2 col-md-4">
-                        <div class="icon-box">
-                            <input type="text" class="form-control" id="shift2" name="kunci2" placeholder="KEY (NUMBER)"
-                                required>
-                        </div>
-                    </div>
-                    <div class="col-xl-2 col-md-4">
-                        <div class="icon-box">
-                            <input type="button" class="btn btn-success" value="Decrypt" onclick="deCrypt(true);" />
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-md-12">
-                        <div class="icon-box">
-                            <div style="color: black"><span id="hasilDekripsi"> - </span></div>
-                        </div>
-                    </div>
-                </div>
-            </form>
+  <!-- Navigation-->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+    <a style="visibility: hidden;" class="navbar-brand js-scroll-trigger" href="#"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+      aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"><span
+        class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="../index.html">Tentang Kami</a></li>
+        <li class="nav-item"><a class="nav-link js-scroll-trigger active" href="#">Caesar Cipher</a></li>
+        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="vigenere.html">Vigenere Cipher</a></li>
+        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="playfair.html">Playfair Cipher</a></li>
+        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="box.html">Columnar Cipher</a></li>
+        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="zigzag.html">Zigzag Cipher</a>
+        </li>
+        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="affine.html">Affine Cipher</a></li>
+        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="hill.html">Hill Cipher</a></li>
+      </ul>
     </div>
-    </section>
-    </div>
-    <!-- Fungsi Enkripsi -->
-    <script>
-        function doCrypt(isDecrypt) {
-          var shiftText = document.getElementById("shift").value;
-          if (!/^-?\d+$/.test(shiftText)) {
-            alert("Shift is not an integer");
-            return;
-          }
-          var shift = parseInt(shiftText, 10);
-          if (shift < 0 || shift >= 26) {
-            alert("Shift is out of range");
-            return;
-          }
-          if (isDecrypt)
-            shift = (26 - shift) % 26;
-          var textElem = document.getElementById("text");
-          var textOut = document.getElementById("hasilEnkripsi");
-          textOut.innerHTML = caesarShift(textElem.value, shift);
-        }
-    
-        function caesarShift(text, shift) {
-          var result = "";
-          for (var i = 0; i < text.length; i++) {
-            var c = text.charCodeAt(i);
-            if (65 <= c && c <= 90) result += String.fromCharCode((c - 65 + shift) % 26 + 65); // Uppercase
-            else if (97 <= c && c <= 122) result += String.fromCharCode((c - 97 + shift) % 26 +
-              97); // Lowercase
-            else result += text.charAt(i); // Copy
-          }
-          return result;
-        }
-      </script>
-      <!-- Fungsi Dekripsi -->
-      <script>
-        function deCrypt(isDecrypt) {
-          var shiftText = document.getElementById("shift2").value;
-          if (!/^-?\d+$/.test(shiftText)) {
-            alert("Shift is not an integer");
-            return;
-          }
-          var shift = parseInt(shiftText, 10);
-          if (shift < 0 || shift >= 26) {
-            alert("Shift is out of range");
-            return;
-          }
-          if (isDecrypt)
-            shift = (26 - shift) % 26;
-          var textElem = document.getElementById("text2");
-          var textOut = document.getElementById("hasilDekripsi");
-          textOut.innerHTML = caesarShift(textElem.value, shift);
-        }
-    
-        function caesarShift(text, shift) {
-          var result = "";
-          for (var i = 0; i < text.length; i++) {
-            var c = text.charCodeAt(i);
-            if (65 <= c && c <= 90) result += String.fromCharCode((c - 65 + shift) % 26 + 65); // Uppercase
-            else if (97 <= c && c <= 122) result += String.fromCharCode((c - 97 + shift) % 26 +
-              97); // Lowercase
-            else result += text.charAt(i); // Copy
-          }
-          return result;
-        }
-      </script>
-    <!-- Bootstrap core JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Core theme JS-->
-    <script src="../js/scripts.js"></script>
+  </nav>
+  <!-- Page Content-->
+  <div class="container-fluid p-0">
+    <!-- Substitusi Caesar Cipher-->
+    <section class="resume-section" id="caesar">
+      <div class="row">
+        <h1>Caesar Cipher</h1>
+        <p align="justify">
+          Dalam Kriptografi, <b>Sandi Caesar</b>, atau <b>Sandi Geser</b>, <b>Kode Caesar</b> atau <b>Geseran Caesar</b>
+          adalah salah satu teknik Enkripsi paling sederhana dan paling terkenal. Sandi ini termasuk sandi substitusi
+          dimana setiap huruf pada teks terang (<i>plaintext</i>) digantikan oleh huruf lain yang memiliki selisih
+          posisi tertentu dalam alfabet.<br> Misalnya, jika menggunakan geseran 3, W akan menjadi Z, I menjadi L, dan K
+          menjadi N sehingga teks terang “wiki” akan menjadi “ZLNL” pada teks tersandi. Nama <i>Caesar</i> diambil dari
+          <i><b>Julius Caesar</b></i>, jenderal, konsul, dan diktator Romawi yang menggunakan sandi ini untuk
+          berkomunikasi dengan para panglimanya.
+          <br><br><br>
+        </p>
+        <form action="#" method="POST">
+          <center>
+            <div class="row gy-4 mt-8 justify-content-center" data-aos="zoom-in" data-aos-delay="250">
+              <div class="col-xl-3 col-md-4">
+                <div class="icon-box">
+                  <input type="text" class="form-control" id="text" name="text" placeholder="PLAINTEXT" required>
+                </div>
+              </div>
+              <div class="col-xl-2 col-md-4">
+                <div class="icon-box">
+                  <input type="text" class="form-control" id="shift" name="kunci" placeholder="KEY (NUMBER)" required>
+                </div>
+              </div>
+              <div class="col-xl-2 col-md-4">
+                <div class="icon-box">
+                  <input type="button" class="btn btn-primary" value="Encrypt" onclick="doCrypt(false);" />
+                </div>
+              </div>
+              <div class="col-xl-3 col-md-12">
+                <div class="icon-box">
+                  <div style="color: black"><span id="hasilEnkripsi"> - </span></div>
+                </div>
+              </div>
+            </div>
+            <br>
+            <div class="row gy-4 mt-8 justify-content-center" data-aos="zoom-in" data-aos-delay="250">
+              <div class="col-xl-3 col-md-4">
+                <div class="icon-box">
+                  <input type="text" class="form-control" id="text2" name="text2" placeholder="CIPHER TEXT" required>
+                </div>
+              </div>
+              <div class="col-xl-2 col-md-4">
+                <div class="icon-box">
+                  <input type="text" class="form-control" id="shift2" name="kunci2" placeholder="KEY (NUMBER)" required>
+                </div>
+              </div>
+              <div class="col-xl-2 col-md-4">
+                <div class="icon-box">
+                  <input type="button" class="btn btn-success" value="Decrypt" onclick="deCrypt(true);" />
+                </div>
+              </div>
+              <div class="col-xl-3 col-md-12">
+                <div class="icon-box">
+                  <div style="color: black"><span id="hasilDekripsi"> - </span></div>
+                </div>
+              </div>
+            </div>
+          </center>
+        </form>
+      </div>
+  </div>
+  </section>
+  </div>
+  <!-- Fungsi Enkripsi -->
+  <script>
+    function doCrypt(isDecrypt) {
+      var shiftText = document.getElementById("shift").value;
+      if (!/^-?\d+$/.test(shiftText)) {
+        alert("Shift is not an integer");
+        return;
+      }
+      var shift = parseInt(shiftText, 10);
+      if (shift < 0 || shift >= 26) {
+        alert("Shift is out of range");
+        return;
+      }
+      if (isDecrypt)
+        shift = (26 - shift) % 26;
+      var textElem = document.getElementById("text");
+      var textOut = document.getElementById("hasilEnkripsi");
+      textOut.innerHTML = caesarShift(textElem.value, shift);
+    }
+
+    function caesarShift(text, shift) {
+      var result = "";
+      for (var i = 0; i < text.length; i++) {
+        var c = text.charCodeAt(i);
+        if (65 <= c && c <= 90) result += String.fromCharCode((c - 65 + shift) % 26 + 65); // Uppercase
+        else if (97 <= c && c <= 122) result += String.fromCharCode((c - 97 + shift) % 26 +
+          97); // Lowercase
+        else result += text.charAt(i); // Copy
+      }
+      return result;
+    }
+  </script>
+  <!-- Fungsi Dekripsi -->
+  <script>
+    function deCrypt(isDecrypt) {
+      var shiftText = document.getElementById("shift2").value;
+      if (!/^-?\d+$/.test(shiftText)) {
+        alert("Shift is not an integer");
+        return;
+      }
+      var shift = parseInt(shiftText, 10);
+      if (shift < 0 || shift >= 26) {
+        alert("Shift is out of range");
+        return;
+      }
+      if (isDecrypt)
+        shift = (26 - shift) % 26;
+      var textElem = document.getElementById("text2");
+      var textOut = document.getElementById("hasilDekripsi");
+      textOut.innerHTML = caesarShift(textElem.value, shift);
+    }
+
+    function caesarShift(text, shift) {
+      var result = "";
+      for (var i = 0; i < text.length; i++) {
+        var c = text.charCodeAt(i);
+        if (65 <= c && c <= 90) result += String.fromCharCode((c - 65 + shift) % 26 + 65); // Uppercase
+        else if (97 <= c && c <= 122) result += String.fromCharCode((c - 97 + shift) % 26 +
+          97); // Lowercase
+        else result += text.charAt(i); // Copy
+      }
+      return result;
+    }
+  </script>
+  <!-- Bootstrap core JS-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Core theme JS-->
+  <script src="../js/scripts.js"></script>
 </body>
 
 </html>
